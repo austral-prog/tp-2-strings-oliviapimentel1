@@ -3,3 +3,5 @@ def slice_advanced():
     en adelante, tomando uno de cada dos (paso 2).
     """
     pass
+    nombre = input("ingrese su nombre:")
+    print (nombre[4::2])
