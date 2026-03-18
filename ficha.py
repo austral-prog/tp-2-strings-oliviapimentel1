@@ -26,7 +26,7 @@ def ficha():
     #   - Cierre decorativo usando repetición de string ("=" * 24)
     pass
 
-    nombre = input("ingrese su nombre completo:")
+    nombre = input("ingrese su nombre:")
     email = input("ingrese su email:")
     nota1 = int(input("ingrese nota 1:"))
     nota2 = int(input("ingrese nota 2:"))
@@ -42,32 +42,38 @@ def ficha():
     email_limpio = email.lower()
     print (f"Email: {email_limpio}")
 
-    caracteres_nombre = len(nombre)
+    caracteres_nombre = len(nombre_limpio)
     print (f"Caracteres en nombre: {caracteres_nombre}")
 
-    espacio = nombre.find(" ")
-    iniciales = nombre[0] + nombre[espacio + 1]
+    espacio = nombre_limpio.find(" ")
+    iniciales = nombre_limpio[0] + nombre_limpio[espacio + 1]
     print (f"Iniciales: {iniciales}")
 
-    nombre = nombre[0:espacio].lower()
-    apellido = nombre[espacio + 1:].lower()
-    usuario = apellido + "." + nombre
+    nombre_parte = nombre_limpio[0:espacio].lower()
+    apellido_parte = nombre_limpio[espacio + 1:].lower()
+    usuario = apellido_parte + "." + nombre_parte
     print (f"Usuario: {usuario}")
 
     tiene_arroba = "@" in email
     print (f"Email valido: {tiene_arroba}")
 
-    despues_del_arroba = email.find("@")
-    dominio = email [despues_del_arroba + 1:]
+    despues_del_arroba = email_limpio.find("@")
+    dominio = email_limpio [despues_del_arroba + 1:]
     print (f"Dominio: {dominio}")
 
-    nombre_de_archivo = usuario.replace("." , "_")
+
+    nombre_de_archivo = nombre_limpio.replace(" ", "_")
     print (f"Nombre para archivo: {nombre_de_archivo}")
 
-    print (f"Cantidad de a: {"a" in nombre}")
+    cantidad_a = nombre_limpio.lower().count("a")
+    print (f"Cantidad de a: {cantidad_a}")
 
-    codigo_secreto = nombre.upper()[::-1]
+    codigo_secreto = nombre_limpio.upper()[::-1]
     print (f"Codigo secreto: {codigo_secreto}")
+
+    print(f"Nota 1: {nota1}")
+    print(f"Nota 2: {nota2}")
+    print(f"Nota 3: {nota3}")
 
     suma = nota1 + nota2 + nota3
     print (f"Suma: {suma}")
